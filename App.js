@@ -1,14 +1,18 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { SafeAreaView, StyleSheet, Text, View } from 'react-native';
 import { Provider } from 'react-redux';
+import HomeScreen from './screens/HomeScreen';
+import { store } from './store';
+import tw from 'tailwind-react-native-classnames';
 
 export default function App() {
   return (
-
-    <View style={styles.container}>
-      <Text>Let's Build Uber</Text>
-    </View>
+    <Provider store={store}>
+      <SafeAreaView style={tw`bg-white h-full`}>
+        <HomeScreen />
+      </SafeAreaView>
+    </Provider>
   );
 }
 
@@ -19,4 +23,5 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+
 });
